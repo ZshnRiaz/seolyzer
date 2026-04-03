@@ -1,0 +1,94 @@
+<div class="mb-10 flex flex-col gap-[20px]">
+  <h2 class="font-['Inter'] font-semibold text-[26px] leading-[34px] tracking-[0px] text-gray-900">WDF/IDF Analysis</h2>
+  <p class="font-['Inter'] font-normal !text-[#4C4C4C] text-[14px] leading-[22px] tracking-[0px] text-gray-500 mt-1.5">WDF/IDF analysis shows keyword relevance and gaps, helping you optimize content for better search rankings.</p>
+</div>
+
+<!-- Main Analysis Card -->
+<div class="bg-white rounded-[18px] p-6 md:p-10 shadow-sm border border-gray-100 mb-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+    <!-- Col 1 -->
+    <div class="flex flex-col gap-8">
+      <div class="flex flex-col w-full gap-2.5">
+        <label class="font-['Inter'] font-semibold text-[15px] leading-[22px] tracking-[0px] text-gray-900 ml-1">Keyword</label>
+        <div class="!h-[40px] !bg-[#f5f5f5] font-['Inter'] font-normal text-[12px] leading-[22px] tracking-[0px] text-[#4C4C4C] !rounded-[4px] flex items-center">
+          <span class="ml-6">Keyword</span>
+        </div>
+      </div>
+      <div class="flex flex-col w-full gap-2.5">
+        <label class="font-['Inter'] font-semibold text-[15px] leading-[22px] tracking-[0px] text-gray-900 ml-1">Word Filter</label>
+        <div class="!h-[40px] !bg-[#f5f5f5] font-['Inter'] font-normal text-[12px] leading-[22px] tracking-[0px] text-[#4C4C4C] !rounded-[4px] flex items-center">
+          <span class="ml-6">Word Filter</span>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2.5">
+        <label class="font-['Inter'] font-semibold text-[15px] leading-[22px] tracking-[0px] text-gray-900 ml-1">Google Version</label>
+        <div class="!h-[40px] !bg-[#f5f5f5] font-['Inter'] font-normal text-[12px] leading-[22px] tracking-[0px] text-[#4C4C4C] !rounded-[4px] flex items-center">
+          <span class="ml-6">com (google version)</span>
+        </div>
+      </div>
+    </div>
+    <!-- Col 2 -->
+    <div class="flex flex-col gap-8">
+      <div class="flex flex-col gap-2.5">
+        <label class="font-['Inter'] font-semibold text-[15px] leading-[22px] tracking-[0px] text-gray-900 ml-1">Reference Page</label>
+        <div class="!h-[40px] !bg-[#f5f5f5] font-['Inter'] font-normal text-[12px] leading-[22px] tracking-[0px] text-[#4C4C4C] !rounded-[4px] flex items-center">
+          <span class="ml-6">Reference Page</span>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2.5">
+        <label class="font-['Inter'] font-semibold text-[15px] leading-[22px] tracking-[0px] text-gray-900 ml-1">Language</label>
+        <div class="!h-[40px] !bg-[#f5f5f5] font-['Inter'] font-normal text-[12px] leading-[22px] tracking-[0px] text-[#4C4C4C] !rounded-[4px] flex items-center">
+          <span class="ml-6">English</span>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2.5">
+        <label class="font-['Inter'] font-semibold text-[15px] leading-[22px] tracking-[0px] text-gray-900 ml-1">Type of Analysis</label>
+        <div class="!h-[40px] !bg-[#f5f5f5] font-['Inter'] font-normal text-[12px] leading-[22px] tracking-[0px] text-[#4C4C4C] !rounded-[4px] flex items-center">
+          <span class="ml-6">1-word analysis</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Secondary Options -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+  <div class="bg-white font-['Inter'] font-normal text-base leading-[22px] tracking-[0px] border border-gray-50 rounded-[14px] h-[64px] flex items-center px-10 text-[#ff8f00] font-bold shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+    Select local Area
+  </div>
+  <div class="bg-white font-['Inter'] font-normal text-base leading-[22px] tracking-[0px] border border-gray-50 rounded-[14px] h-[64px] flex items-center px-10 shadow-sm text-[#ff8f00] font-bold hover:shadow-md transition-shadow cursor-pointer">
+    Add own Stopwords
+  </div>
+  <div class="bg-white font-['Inter'] font-semibold text-[15px] leading-[22px] tracking-[0px] border border-gray-50 rounded-[14px] h-[64px] flex items-center px-10 shadow-sm hover:shadow-md transition-shadow">
+    Desktop
+  </div>
+  <div class="bg-white border border-gray-50 rounded-[14px] h-[64px] flex items-center px-10 shadow-sm hover:shadow-md transition-shadow gap-5">
+    <div class="w-6 h-6 border-2 border-gray-900 rounded flex items-center justify-center bg-white cursor-pointer hover:bg-gray-50">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <label class="text-[15px] font-normal text-base leading-[22px] tracking-[0px] cursor-pointer select-none">Use Own Stopword List</label>
+  </div>
+</div>
+
+<!-- Action Buttons -->
+<div class="mt-8 flex flex-wrap !justify-end sm:justify-center gap-2 md:gap-6">
+  <my-button class="w-full sm:w-[200px]" type="secondary" text="Custom URLS" show-icon="false">Custom URLS</my-button>
+  <my-button class="w-full sm:w-[200px]" type="primary" text="Start Analysis" show-icon="false">Start Analysis</my-button>
+</div>
+
+<!-- Proof Keywords Chart -->
+<proof-keywords-chart></proof-keywords-chart>
+
+<!-- Promotion Banner -->
+<div class="w-full bg-[#8F5FC426] rounded-[40px] p-10 pb-3 md:p-14 md:pb-6 flex flex-col xl:flex-row items-center justify-between gap-12 mt-12 mb-8">
+  <div class="max-w-[750px]">
+    <h3 class="font-['Inter'] font-semibold text-[26px] leading-[34px] tracking-[0px] text-gray-900 mb-4">TF/IDF on a whole new level!</h3>
+    <p class="font-['Inter'] font-normal text-[14px] leading-[22px] tracking-[0px] text-gray-600 leading-relaxed">Get to know our new module "Content-Creation" and bring your content creation to an unprecedented level! Use our Briefing Creator and the new content editor for perfect planning and creation of your content.</p>
+  </div>
+  <my-button type="purple" class="!py-1 mt-12">
+    <div slot="icon"><i class="fi fi-rr-document text-[20px]"></i></div>
+    Start Now!
+  </my-button>
+</div>
