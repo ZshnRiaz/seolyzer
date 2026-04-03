@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SEOlyze</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+</head>
+<body>
+    <div id="layout" class="flex min-h-screen bg-[#f3f4f6]">
+        <!-- Mobile Overlay Backdrop (Visible only when sidebar is open on mobile) -->
+        <div 
+            id="sidebar-overlay"
+            class="fixed inset-0 bg-black/60 z-[400] transition-opacity duration-300 md:hidden pointer-events-none opacity-0"
+            @click="toggleSidebar"
+        ></div>
+
+        <!-- LEFT: Sidebar Navigation -->
+        <my-sidebar 
+            :menu="menu" 
+            :stats="stats" 
+            active-id="analysis"
+            :open="isSidebarOpen"
+            @close="toggleSidebar"
+        ></my-sidebar>
+ 
+        <!-- RIGHT: Main Content Dynamic Area -->
+        <div class="flex-grow flex flex-col h-screen overflow-hidden">
+            <!-- Global Navbar -->
+            <my-navbar 
+                user-name="Zubia Sheraz" 
+                user-role="User" 
+                notifications
+                @toggle-sidebar="toggleSidebar"
+            ></my-navbar>
+
+            <!-- Main Dashboard Scrollable Content -->
+            <main class="flex-grow p-8 md:p-12 overflow-y-auto">
+             <div class="mb-10 flex flex-col gap-[20px]">
+                 <h2 class="font-['Inter'] font-semibold text-[26px] leading-[34px] tracking-[0px] text-gray-900">WDF/IDF Analysis</h2>
+                 <p class="font-['Inter'] font-normal !text-[#4C4C4C] text-[14px] leading-[22px] tracking-[0px] text-gray-500 mt-1.5">WDF/IDF analysis shows keyword relevance and gaps, helping you optimize content for better search rankings.</p>
+             </div>
+
+             <!-- Main Analysis Card -->
+             <div class="bg-white rounded-[18px] p-6 md:p-10 shadow-sm border border-gray-100 mb-6">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                       <!-- Col 1 -->
+                       <div class="flex flex-col gap-8">
+                         <div class="flex flex-col w-full gap-2.5">
+    <label class="font-['Inter']   font-semibold text-[15px] leading-[22px] tracking-[0px] text-gray-900 ml-1">
+        Keyword
+    </label>
+    <div class="!h-[40px] !bg-[#f5f5f5]  font-['Inter'] font-normal text-[12px] leading-[22px] tracking-[0px] text-[#4C4C4C]  !rounded-[4px] flex items-center ">
+        
+        <span class="ml-6">Keyword</span>
+    </div>
+</div>
+                            <div class="flex flex-col w-full gap-2.5">
+                                <label class="font-['Inter'] font-semibold text-[15px] leading-[22px] tracking-[0px] text-gray-900 ml-1">Word Filter</label>
+                                 <div class="!h-[40px] !bg-[#f5f5f5]  font-['Inter'] font-normal text-[12px] leading-[22px] tracking-[0px] text-[#4C4C4C]  !rounded-[4px] flex items-center ">
+        
+        <span class="ml-6">Word Filter</span>
+    </div>
+                            </div>
+                             <div class="flex flex-col gap-2.5">
+                                 <label class="font-['Inter'] font-semibold text-[15px] leading-[22px] tracking-[0px] text-gray-900 ml-1">Google Version</label>
+                                 <my-select 
+                                    header="Google Version"
+                                    placeholder="com (google version)" 
+                                    v-model="selectedGoogle"
+                                    :options="googleVersions"
+                                    class="!min-w-0 !h-[40px] !bg-[#f5f5f5] font-['Inter'] font-normal text-base leading-[22px] tracking-[0px] text-[#4C4C4C] !border-none !outline-none focus:!border-none focus:!outline-none focus:!ring-0 !rounded-[4px]">
+                                 </my-select>
+                             </div>
+                        </div>
+                        <!-- Col 2 -->
+                        <div class="flex flex-col gap-8">
+                             <div class="flex flex-col gap-2.5">
+                                 <label class="font-['Inter'] font-semibold text-[15px] leading-[22px] tracking-[0px] text-gray-900 ml-1">Reference Page</label>
+                                 <div class="!h-[40px] !bg-[#f5f5f5]  font-['Inter'] font-normal text-[12px] leading-[22px] tracking-[0px] text-[#4C4C4C]  !rounded-[4px] flex items-center ">
+         
+         <span class="ml-6">Reference Page</span>
+     </div>
+                             </div>
+                             <div class="flex flex-col gap-2.5">
+                                 <label class="font-['Inter'] font-semibold text-[15px] leading-[22px] tracking-[0px] text-gray-900 ml-1">Language</label>
+                                 <my-select 
+                                    header="Language"
+                                    placeholder="English" 
+                                    v-model="selectedLanguage"
+                                    :options="languages"
+                                    class="!min-w-0 !h-[40px] !bg-[#f5f5f5] !border-none !outline-none focus:!border-none focus:!outline-none focus:!ring-0 !rounded-[4px]">
+                                 </my-select>
+                             </div>
+                             <div class="flex flex-col gap-2.5">
+                                 <label class="font-['Inter'] font-semibold text-[15px] leading-[22px] tracking-[0px] text-gray-900 ml-1">Type of Analysis</label>
+                                 <my-select 
+                                    header="Analysis Type"
+                                    placeholder="1-word analysis" 
+                                    v-model="selectedAnalysis"
+                                    :options="analysisTypes"
+                                    class="!min-w-0 !h-[40px] !bg-[#f5f5f5] !border-none !outline-none focus:!border-none focus:!outline-none focus:!ring-0 !rounded-[4px] text-[#4C4C4C]">
+                                 </my-select>
+                             </div>
+                        </div>
+                   </div>
+              </div>
+ 
+              <!-- Secondary Options (Grid of 4 white cards) -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                   <!-- Card 1 -->
+                   <div class="bg-white font-['Inter'] font-normal text-base leading-[22px] tracking-[0px]  border border-gray-50 rounded-[14px] h-[64px] flex items-center px-10 text-[#ff8f00] font-bold origin-left  shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+                       Select local Area
+                   </div>
+                   <!-- Card 2 -->
+                   <div class="bg-white font-['Inter'] font-normal text-base leading-[22px] tracking-[0px] border border-gray-50 rounded-[14px] h-[64px] flex items-center px-10 shadow-sm text-[#ff8f00] font-bold  hover:shadow-md transition-shadow cursor-pointer">
+                     Add own Stopwords
+                   </div>
+                   <!-- Card 3 -->
+                   <div class="bg-white font-['Inter'] font-semibold text-[15px] leading-[22px] tracking-[0px] border border-gray-50 rounded-[14px] h-[64px] flex items-center px-6 shadow-sm hover:shadow-md transition-shadow">
+                        <my-select 
+                            header="Device"
+                            placeholder="Desktop" 
+                            v-model="selectedDevice"
+                            :options="deviceTypes"
+                            class="!min-w-0 flex-1 focus:!border-none focus:!outline-none !border-none bg-transparent">
+                        </my-select>
+                   </div>
+                  <!-- Card 4 -->
+                  <div class="bg-white border border-gray-50 rounded-[14px] h-[64px] flex items-center px-10 shadow-sm hover:shadow-md transition-shadow gap-5">
+                        <div class="w-6 h-6 border-2 border-gray-900 rounded flex items-center justify-center bg-white cursor-pointer hover:bg-gray-50">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                               <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <label class="text-[15px] font-normal text-base leading-[22px] tracking-[0px] cursor-pointer select-none">Use Own Stopword List</label>
+                  </div>
+             </div>
+
+             <!-- Action Buttons -->
+      <div class="mt-8 flex flex-wrap !justify-end sm:justify-center gap-2 md:gap-6">
+  <my-button class="w-full sm:w-[200px]" type="secondary" text="Custom URLS" show-icon="false"> Custom URLS</my-button>
+  <my-button class="w-full sm:w-[200px]" type="primary" text="Start Analysis" show-icon="false"> Start Analysis</my-button>
+</div>
+
+             <!-- Promotion Banner -->
+             <div class="w-full bg-[#8F5FC426] rounded-[40px] p-10 pb-3 md:p-14 md:pb-6 flex flex-col xl:flex-row items-center justify-between gap-12 mt-12 mb-8">
+                  <div class="max-w-[750px]">
+                       <h3 class="font-['Inter'] font-semibold text-[26px] leading-[34px] tracking-[0px] text-gray-900 mb-4">TF/IDF on a whole new level!</h3>
+                       <p class="font-['Inter'] font-normal text-[14px] leading-[22px] tracking-[0px] text-gray-600 leading-relaxed">Get to know our new module "Content-Creation" and bring your content creation to an unprecedented level! Use our Briefing Creator and the new content editor for perfect planning and creation of your content.</p>
+                  </div>
+                  <my-button type="purple" class="!py-1 mt-12 ">
+                       <div slot="icon"><i class="fi fi-rr-document text-[20px]"></i></div>
+                       Start Now!
+                  </my-button>
+             </div>
+        </main>
+    </div>
+
+    <!-- Application Initialization -->
+    <script type="module">
+        import { createApp } from './src/BaseComponent.js';
+        import './src/components/index.js'; // Registers all components from your library
+
+        createApp({
+            el: '#layout',
+            data() {
+                return {
+                    isSidebarOpen: "false",
+                    selectedGoogle: "com",
+                    selectedLanguage: "en",
+                    selectedAnalysis: "1word",
+                    selectedDevice: "desktop",
+                    googleVersions: [
+                        { label: 'com (google version)', value: 'com' },
+                        { label: 'org (domain version)', value: 'org' }
+                    ],
+                    languages: [
+                        { label: 'English', value: 'en' },
+                        { label: 'German', value: 'de' },
+                        { label: 'Spanish', value: 'es' }
+                    ],
+                    analysisTypes: [
+                        { label: '1-word analysis', value: '1word' },
+                        { label: '2-word analysis', value: '2word' }
+                    ],
+                    deviceTypes: [
+                        { label: 'Desktop', value: 'desktop' },
+                        { label: 'Mobile', value: 'mobile' }
+                    ],
+                    menu: JSON.stringify([
+                        { id: 'analysis', label: 'WDF/IDF Analysis', icon: 'fi-rr-chart-line-up' },
+                        { 
+                            id: 'keyword', label: 'Keyword-Research', hasChildren: true, icon: 'fi-rr-folder-tree',
+                            children: [ { label: 'Search Volume' }, { label: 'Difficulty' } ]
+                        },
+                        { id: 'onpage', label: 'OnPage Area', icon: 'fi-rr-document' },
+                        { id: 'snippet', label: 'Snippet-Optimizer', icon: 'fi-rr-magic-wand' },
+                        { id: 'question', label: 'Question-Tool', icon: 'fi-rr-interrogation' },
+                        { id: 'pro', label: 'Professional Analysis', icon: 'fi-rr-briefcase' },
+                        { id: 'editor', label: 'WDF/IDF Editor', icon: 'fi-rr-edit' },
+                        { id: 'quick', label: 'WDF Quick Check', icon: 'fi-rr-check' },
+                        { id: 'saved', label: 'Saved Analyses', icon: 'fi-rr-picture' },
+                        { id: 'landing', label: 'Landingpage Monitoring', icon: 'fi-rr-flag' },
+                        { id: 'writers', label: 'Access for Writers', icon: 'fi-rr-pencil' },
+                        { id: 'certified', label: 'Certified Text Providers', icon: 'fi-rr-shield-check' },
+                        { id: 'videos', label: 'Videos', icon: 'fi-rr-play-alt' }
+                    ]),
+                    stats: JSON.stringify([
+                        { label: 'Briefings:', value: 1, variant: 'primary' },
+                        { label: 'Redakteure:', value: 0, variant: 'primary' },
+                        { label: 'Access for Writers:', value: 2, variant: 'warning' },
+                        { label: 'Ranking Monitoring:', value: 10, variant: 'success' }
+                    ])
+                };
+            },
+            watch: {
+                isSidebarOpen(val) {
+                    const overlay = document.getElementById('sidebar-overlay');
+                    if (val === "true") {
+                        overlay.classList.remove('pointer-events-none', 'opacity-0');
+                        overlay.classList.add('opacity-100');
+                    } else {
+                        overlay.classList.add('pointer-events-none', 'opacity-0');
+                        overlay.classList.remove('opacity-100');
+                    }
+                }
+            },
+            methods: {
+                toggleSidebar() {
+                    this.isSidebarOpen = this.isSidebarOpen === "true" ? "false" : "true";
+                }
+            }
+        });
+    </script>
+</body>
+</html>

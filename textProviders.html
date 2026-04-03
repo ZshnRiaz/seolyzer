@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Provider Grid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased py-10 px-4 sm:px-6 lg:px-8">
+    <div class="w-full mx-auto">
+        <div class="flex flex-col gap-2.5">
+            <h1 class="font-['Inter'] font-semibold text-[26px] leading-[34px] tracking-[0px] text-gray-900 mb-4 tracking-tight">Access for Writers</h1>
+
+            <p class="font-['Inter'] w-[68%] font-normal text-[14px] leading-[22px] tracking-[0px] text-gray-500 mb-8">
+                Do you also want to be listed with us as a certified copywriter/copywriting agency and present yourself to your target audience in the best possible way? 
+                Then contact us today and benefit from our listing.
+            </p>
+        </div>
+        <div class="inline-block  pb-1">
+            <h2 class="font-['Inter'] font-semibold text-[15px] leading-[22px] tracking-[0px] text-gray-900">Overview of selected copywriters and text agencies that offer texts optimized using SEOlyze.com</h2>
+        </div>
+
+        <div id="service-grid" class="grid mt-6 grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
+            <!-- Cards will be injected here -->
+        </div>
+    </div>
+
+    <script type="module">
+        const servicesData = [
+            {
+                id: 1,
+                mainIcon: `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>`,
+                title: "CONTENT Manufaktur",
+                description: "Offers meticulously researched and professionally written texts tailored to your keywords. Upon request, they incorporate analysis using standard WDF*IDF tools and create content that considers all relevant secondary keywords.",
+                contacts: [
+                    { label: "Phone", value: "+49-89-23 70 20-33", iconType: "phone" },
+                    { label: "Email", value: "info@contentmanufaktur.net", iconType: "email" },
+                    { label: "Website", value: "http://www.contentmanufaktur.net", iconType: "web" },
+                    { label: "Contact", value: "CONTENTmanufaktur GmbH, Thalkirchner Str. 14, 80337 Munich", iconType: "location" }
+                ]
+            },
+            {
+                id: 2,
+                mainIcon: `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`,
+                title: "Text Agency Wortfokus",
+                description: "Provides WDF*IDF tests for on-page optimization. In addition to high-quality SEO texts, they write engaging website content, press articles, and product descriptions. Secure your WDF*IDF test, individual and high-quality content, and use the professional tool WDF*IDF-COM for your success.",
+                contacts: [
+                    { label: "Phone", value: "+49-172-25 35 28-2", iconType: "phone" },
+                    { label: "Email", value: "info@wortfokus.de", iconType: "email" },
+                    { label: "Contact", value: "Julia-Wieser-Hüttlinger, Augustastrasse 1, 51370 Leverkusen", iconType: "location" }
+                ]
+            },
+            {
+                id: 3,
+                mainIcon: `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>`,
+                title: "PB Internet Services",
+                description: "pbInternet services has been creating online content and various offline projects for five years. During this time, we've gained experience in virtually every subject area and aren't afraid to create content for online casinos either. Our tests in the areas finance, lifestyle, culture, fashion, and health.",
+                contacts: [
+                    { label: "Phone", value: "+43 664 51 62 73 8", iconType: "phone" },
+                    { label: "Email", value: "info@pb-internetdienstleistungen.at", iconType: "email" },
+                    { label: "Skype", value: "patrick.berger", iconType: "skype" },
+                    { label: "Contact", value: "Patrick Berger", iconType: "user" }
+                ]
+            },
+            {
+                id: 4,
+                mainIcon: `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"/><path d="M3 6h18"/><path d="M3 18h18"/></svg>`,
+                title: "Wortverkauf.de",
+                description: "In the fight against mass-produced text on the internet, the creative copywriting agency Wortverkauf.de is committed to filling the web with worthwhile content once again. Clients here don't receive keyword lists disguised as text, but rather engaging content for both humans and search engines.",
+                contacts: [
+                    { label: "Phone", value: "+49-89-23 70 20-33", iconType: "phone" },
+                    { label: "Address", value: "Marwieschen Str. 67, 10317 Rostock", iconType: "location" },
+                    { label: "Website", value: "www.wortverkauf.de", iconType: "web" },
+                    { label: "Contact Person", value: "Katrin Winkler", iconType: "user" }
+                ]
+            },
+            {
+                id: 5,
+                mainIcon: `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>`,
+                title: "DONGUS HOSPACH PARTNER",
+                description: "We are your partner for strategic marketing and creative implementation. For over 10 years, we have been developing comprehensive online solutions for our clients in the service, retail, and industrial sectors. With our expertise in search engine optimization and SEO copywriting, we create customized solutions that deliver success for our clients.",
+                contacts: [
+                    { label: "Phone", value: "0711 – 505 50 80", iconType: "phone" },
+                    { label: "Website", value: "www.dongus.de", iconType: "web" },
+                    { label: "Contact", value: "Weinidstralle 1, 70178 Stuttgart", iconType: "location" }
+                ]
+            },
+            {
+                id: 6,
+                mainIcon: `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+                title: "Wortalarm.de",
+                description: "Since September 2012, the Wortalarm.de team led by owner Stephanie Luckemann, has been busy writing a wide variety of texts tailored to client needs every day. The agency specializes in high-quality content and therefore consciously avoids being one of the producers of mass-market products (textalien, de-fos, general shops) November 2012.",
+                contacts: [
+                    { label: "Phone", value: "+49-30-221 71810572", iconType: "phone" },
+                    { label: "Address", value: "Ritterweg 24b / 53647 Alfter", iconType: "location" },
+                    { label: "Website", value: "www.wortalarm.de", iconType: "web" }
+                ]
+            },
+            {
+                id: 7,
+                mainIcon: `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
+                title: "Aexea",
+                description: "Aexea creates your texts, whether the focus is on providing information, improving search engine ranking, or optimizing conversions – our experienced online editors, journalists, and SEO consultants will transform your content into high-quality content. Because",
+                contacts: [
+                    { label: "Phone", value: "+49-711 664 486-11", iconType: "phone" },
+                    { label: "Address", value: "Marienstraße 42, 70178 Stuttgart", iconType: "location" },
+                    { label: "Email", value: "beate.potsch@aexea.de", iconType: "email" },
+                    { label: "Contact Person", value: "Beate Pötsch (Head of Sales)", iconType: "user" }
+                ]
+            },
+            {
+                id: 8,
+                mainIcon: `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a3 3 0 0 0-3-3H5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8Z"/><path d="M10 12h.01"/><path d="M13 12h.01"/><path d="M7 12h.01"/></svg>`,
+                title: "SEO Kitchen",
+                description: "As an online marketing agency, we offer our clients a comprehensive range of services. Within the framework of a professional strategy, we create high-quality, WDF*IDF-optimized texts for you. Good content is always a combination of two aspects: providing added value for the user and optimizing content for search engine algorithms.",
+                contacts: [
+                    { label: "Phone", value: "08031 / 25084-90", iconType: "phone" },
+                    { label: "Address", value: "Fraunhoferstr. 9, 83059 Kolbermoor", iconType: "location" },
+                    { label: "Website", value: "www.seo-kueche.de", iconType: "web" }
+                ]
+            }
+        ];
+
+        const icons = {
+            phone: `<svg class="w-4 h-4 text-[#8F5FC4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`,
+            email: `<svg class="w-4 h-4 text-[#8F5FC4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>`,
+            web: `<svg class="w-4 h-4 text-[#8F5FC4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+            location: `<svg class="w-4 h-4 text-[#8F5FC4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>`,
+            user: `<svg class="w-4 h-4 text-[#8F5FC4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
+            skype: `<svg class="w-4 h-4 text-[#8F5FC4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12s4.48 10 10 10 10-4.48 10-10zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>`
+        };
+
+        function renderGrid() {
+            const grid = document.getElementById('service-grid');
+            grid.innerHTML = servicesData.map(service => `
+                <div class="bg-white rounded-[18px] p-8 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col gap-5 w-full md:w-[522px] h-auto md:h-[453px] opacity-100">
+                    <div class="flex flex-col gap-[25px]">
+                        <div class="w-12 h-12 bg-[#8F5FC4] rounded-lg flex items-center justify-center text-white shrink-0">
+                            ${service.mainIcon}
+                        </div>
+                        <h2 class="font-['Inter'] font-semibold text-[20px] leading-[28px] tracking-[0px] uppercase text-gray-900 align-middle">${service.title}</h2>
+                    </div>
+                    <p class="font-['Inter'] font-normal text-[14px] leading-[22px] tracking-[0px] text-gray-500 overflow-hidden line-clamp-[6]">${service.description}</p>
+                    <div class="mt-auto flex flex-col gap-2.5 pt-2">
+                        ${service.contacts.map(contact => `
+                            <div class="flex items-start gap-3 text-[13px] text-gray-500">
+                                <div class="mt-0.5 shrink-0">
+                                    ${icons[contact.iconType] || ''}
+                                </div>
+                                <div class="flex flex-wrap">
+                                    <span class="font-semibold text-gray-900 mr-1.5">${contact.label}:</span>
+                                    <span class="break-all text-gray-600">${contact.value}</span>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', renderGrid);
+    </script>
+</body>
+</html>

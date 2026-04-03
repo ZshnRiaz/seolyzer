@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyword Research - SEOlyze</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .premium-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Staggered animation for cards */
+        .card-stagger:nth-child(1) { animation-delay: 0.1s; }
+        .card-stagger:nth-child(2) { animation-delay: 0.2s; }
+        .card-stagger:nth-child(3) { animation-delay: 0.3s; }
+        .card-stagger:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body class="min-h-screen text-gray-900 overflow-x-hidden">
+    <div id="app" class="max-w-[1400px] mx-auto px-6 py-12 md:px-12 md:py-16">
+        <!-- Header Section -->
+        <header class="mb-10 animate-fade-in">
+            <h1 class="text-[32px] font-bold tracking-tight mb-3">Keyword-Research</h1>
+            <p class="text-[#4C4C4C]  font-inter font-normal leading-[22px] tracking-[0%] vertical-align: middle;   text-[14px]  w-[700px]">
+                Discover the best keywords for your content with data-driven insights, search volume, and competition analysis to boost your SEO strategy.
+            </p>
+        </header>
+
+        <!-- Top Overview Cards -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <!-- Active Card (Germany) -->
+            <div class="rounded-[24px] p-8 flex flex-col gap-6 bg-[#ff8f00] text-white shadow-xl shadow-[#ff8f00]/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 cursor-pointer animate-fade-in card-stagger">
+                <div class="w-14 h-14 rounded-full flex items-center justify-center shadow-inner bg-white overflow-hidden p-3">
+                    <img src="https://flagcdn.com/de.svg" class="w-full h-full object-contain rounded-sm" alt="Germany">
+                </div>
+                <div class="flex flex-col gap-6">
+                    <div class="text-base mt-[44px]  font-inter font-medium leading-[100%] tracking-[0%] text-[#FFFFFF]">Keywords for Germany</div>
+                    <div class="text-[36px] font-bold leading-none text-[36px] text-white font-inter font-semibold leading-[100%] tracking-[0%]">40M</div>
+                </div>
+            </div>
+            
+            <!-- Inactive Card (Austria) -->
+            <div class="rounded-[24px] p-8 flex flex-col gap-6 bg-white text-gray-900 border border-gray-100/50 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer animate-fade-in card-stagger">
+                <div class="w-14 h-14 rounded-full flex items-center justify-center shadow-inner bg-[#FFF5E1] overflow-hidden p-3">
+                    <img src="https://flagcdn.com/at.svg" class="w-full h-full object-contain rounded-sm" alt="Austria">
+                </div>
+                <div class="flex flex-col  gap-6">
+                    <div class="text-base mt-[44px]  font-inter font-medium leading-[100%] tracking-[0%]  text-[#111111]">Keywords for Austria</div>
+                    <div class="text-[36px] text-[#4C4C4C] font-inter font-semibold leading-[100%] tracking-[0%] ">28M</div>
+                </div>
+            </div>
+            
+            <!-- Inactive Card (Spain) -->
+            <div class="rounded-[24px] p-8 flex flex-col gap-6 bg-white text-gray-900 border border-gray-100/50 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer animate-fade-in card-stagger">
+                <div class="w-14 h-14 rounded-full flex items-center justify-center shadow-inner bg-[#FFF5E1] overflow-hidden p-3">
+                    <img src="https://flagcdn.com/es.svg" class="w-full h-full object-contain rounded-sm" alt="Spain">
+                </div>
+                <div class="flex flex-col gap-6">
+                    <div class="text-base mt-[44px]  font-inter font-medium leading-[100%] tracking-[0%]  text-[#111111]    ">Keywords for Spain</div>
+                    <div class="text-[36px] font-bold leading-none text-[#4C4C4C] font-inter font-semibold leading-[100%] tracking-[0%]">30M</div>
+                </div>
+            </div>
+            
+            <!-- Inactive Card (Italy) -->
+            <div class="rounded-[24px] p-8 flex flex-col gap-6 bg-white text-gray-900 border border-gray-100/50 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer animate-fade-in card-stagger">
+                <div class="w-14 h-14 rounded-full flex items-center justify-center shadow-inner bg-[#FFF5E1] overflow-hidden p-3">
+                    <img src="https://flagcdn.com/it.svg" class="w-full h-full object-contain rounded-sm" alt="Italy">
+                </div>
+                <div class="flex flex-col gap-6">
+                    <div class="text-base mt-[44px]  font-inter font-medium leading-[100%] tracking-[0%]  text-[#111111]">Keywords for Italy</div>
+                    <div class="font-bold leading-none text-[36px] text-[#4C4C4C] font-inter font-semibold leading-[100%] tracking-[0%]">30M</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Form Section -->
+        <section class="mb-20 animate-fade-in" style="animation-delay: 0.5s;">
+            <h2 class="text-[22px] text-[#111111] font-inter font-semibold leading-[30px] tracking-[0%] vertical-align: middle; mb-6">Start Topic/Keyword-Research (0/3 Researches available)</h2>
+            
+            <div class="flex flex-col lg:flex-row gap-4 items-end">
+                <div class="flex-1 w-full">
+                    <my-input 
+                        placeholder="Topic/Keyword" 
+                        class="!min-w-0 w-full !bg-white !rounded-[12px] !h-[60px] shadow-sm border-gray-100/50">
+                    </my-input>
+                </div>
+                
+                <div class="flex-1 w-full">
+                    <my-select 
+                        placeholder="Country" 
+                        :options="countries"
+                        class="!min-w-0 w-full !bg-white !rounded-[12px] !h-[60px] shadow-sm border-gray-100/50">
+                    </my-select>
+                </div>
+                
+                
+            </div>
+            <div class="flex items-center justify-end mt-[35px]">
+                <my-button 
+                    type="primary" 
+                    text="Start Analysis" 
+                    show-icon="false"
+                    class="!bg-[#a4db00] !hover:bg-[#94c600] !min-w-[200px] !h-[60px] !rounded-[12px] !border-none !text-white  ">Start Analysis
+                </my-button>
+            </div>
+        </section>
+
+        <!-- Results Section Header -->
+        <section class="mb-10 animate-fade-in" style="animation-delay: 0.6s;">
+            <h2 class="text-[22px] text-[#111111] font-inter font-semibold leading-[30px] tracking-[0%] vertical-align: middle; mb-5">Topic Keyword-Research Results</h2>
+            <p class="text-[#4C4C4C]  font-inter font-normal leading-[22px] tracking-[0%] vertical-align: middle;   text-[14px]    ">See key keyword insights to find high-potential topics and improve your content strategy.</p>
+        </section>
+
+        <!-- Specific Result Title -->
+        <div class="mb-8 animate-fade-in" style="animation-delay: 0.7s;">
+            <h3 class="text-[18px] font-semibold leading-[26px] tracking-[0%] vertical-align: middle; ">Overview: retirement wishes (@ Germany)</h3>
+        </div>
+
+        <!-- Result Metric Cards -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in mb-20" style="animation-delay: 0.8s;">
+            <!-- Metric 1: Search Volume -->
+            <div class="rounded-[24px] h-[146px] w-[264px] p-8 flex flex-col gap-6 bg-[#97BF0D]  text-white shadow-xl shadow-[#8ab800]/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 cursor-pointer">
+                <div class="flex flex-col gap-4">
+                    <div class="text-[14px] font-medium text-[#ffffff] font-inter font-medium leading-[24px] tracking-[0%] ">Search volume</div>
+                    <div class="text-[34px]  font-bold leading-none text-[#ffffff]  font-inter font-semibold leading-[100%] tracking-[0%] ">1.600</div>
+                </div>
+            </div>
+            
+            <!-- Metric 2: Competition -->
+             <div class="rounded-[24px] h-[146px] w-[264px] p-8 flex flex-col gap-6 bg-[#FF9000]  text-white shadow-xl shadow-[#8ab800]/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 cursor-pointer">
+                 <div class="flex flex-col gap-4">
+                   <div class="text-[14px] font-medium text-[#ffffff] font-inter font-medium leading-[24px] tracking-[0%] ">Competition</div>
+                    <div class="text-[34px]  font-bold leading-none text-[#ffffff]  font-inter font-semibold leading-[100%] tracking-[0%] ">15/100</div>
+                    </div>
+            </div>
+            
+            <!-- Metric 3: CPC -->
+                <div class="rounded-[24px] h-[146px] w-[264px] p-8 flex flex-col gap-6 bg-[#97BF0D]  text-white shadow-xl shadow-[#8ab800]/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 cursor-pointer">
+                 <div class="flex flex-col gap-4">
+                   <div class="text-[14px] font-medium text-[#ffffff] font-inter font-medium leading-[24px] tracking-[0%] ">CPC</div>
+                    <div class="text-[34px]  font-bold leading-none text-[#ffffff]  font-inter font-semibold leading-[100%] tracking-[0%] ">0.26€</div>
+                    </div>
+            </div>
+        
+            
+         <!-- Metric 4: Search Results -->
+              <div class="rounded-[24px] h-[146px] w-[264px] p-8 flex flex-col gap-6 bg-[#FF9000]  text-white shadow-xl shadow-[#8ab800]/20 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 cursor-pointer">
+                 <div class="flex flex-col gap-4">
+                   <div class="text-[14px] font-medium text-[#ffffff] font-inter font-medium leading-[24px] tracking-[0%] ">Search results</div>
+                    <div class="text-[34px]  font-bold leading-none text-[#ffffff]  font-inter font-semibold leading-[100%] tracking-[0%] ">0</div>
+                    </div>
+            </div>
+          </section>
+
+            <!-- Phrase Match Table Section -->
+        <section class="animate-fade-in" style="animation-delay: 0.9s;">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-[20px] font-bold text-gray-900">Top 15 Phrase Match</h2>
+                
+            </div>
+       
+            <my-table 
+                :headings="tableHeadings" 
+                :columns="tableData" 
+                class="!rounded-2xl !border-none shadow-xl shadow-black/[0.03] overflow-hidden mb-8">
+                
+                <!-- Custom Checkbox Head -->
+                <div slot="header-select" class="flex items-center justify-center w-full">
+                    <input type="checkbox" class="w-4 h-4 rounded border-gray-300 accent-[#8b79b1] cursor-pointer">
+                </div>
+
+                <!-- Custom Checkbox Cell -->
+                <div slot="cell-select" class="flex items-center justify-center w-full">
+                   <input type="checkbox" class="w-4 h-4 rounded border-gray-200 accent-[#a459fd] cursor-pointer">
+                </div>
+
+                <!-- Custom Trend Badge -->
+                <div slot="cell-trend" class="flex items-center">
+                    <my-badge 
+                        variant="{{ row.trendVariant }}" 
+                        class="!px-6 !py-1.5 !rounded-full !font-bold !text-[11px] uppercase tracking-wide">
+                        {{ row.trend }}
+                    </my-badge>
+                </div>
+            </my-table>
+
+            <!-- Pagination -->
+             <div class="mt-3">
+           <my-pagination 
+                            id="demo-pag"
+                            :total-pages="totalPages"
+                            v-model="currentPage"
+                            @pageChange="onPageChange"
+                            class="bg-white rounded shadow-sm">
+                            <span slot="pageLabel" class="text-black font-normal">Page:</span>
+                        </my-pagination
+                        </div>
+        </section>
+    </div>
+
+    <!-- Application Initialization -->
+    <script type="module">
+        import { createApp } from './src/BaseComponent.js';
+        import './src/components/index.js';
+
+        createApp({
+            el: '#app',
+            data() {
+                return {
+                    currentPage: 1,
+                    totalPages: 10,
+                    countries: JSON.stringify([
+                        { label: 'Germany', value: 'germany' },
+                        { label: 'Austria', value: 'austria' },
+                        { label: 'Spain', value: 'spain' },
+                        { label: 'Italy', value: 'italy' }
+                    ]),
+                    tableHeadings: JSON.stringify([
+                        { key: 'select', title: '', width: '60px' },
+                        { key: 'keyword', title: 'Keyword/Topic', sortable: true },
+                        { key: 'trend', title: 'Trend', sortable: true, width: '150px' },
+                        { key: 'volume', title: 'Search Volume', sortable: true, width: '180px' },
+                        { key: 'cpc', title: 'CPC', sortable: true, width: '120px' },
+                        { key: 'competition', title: 'Competition', sortable: true, width: '150px' }
+                    ]),
+                    tableData: JSON.stringify([
+                        { select: false, keyword: 'seo analysis tool', trend: 'seo', trendVariant: 'warning', volume: '12,100', cpc: '2.40', competition: 'High' },
+                        { select: false, keyword: 'keyword research tool', trend: 'research', trendVariant: 'primary', volume: '18,500', cpc: '3.10', competition: 'High' },
+                        { select: false, keyword: 'seo content optimization', trend: 'seo', trendVariant: 'success', volume: '9,900', cpc: '2.20', competition: 'Medium' },
+                        { select: false, keyword: 'wdf idf analysis', trend: 'analysis', trendVariant: 'warning', volume: '4,400', cpc: '1.80', competition: 'Low' },
+                        { select: false, keyword: 'seo writing tool', trend: 'seo', trendVariant: 'success', volume: '6,600', cpc: '2.70', competition: 'Medium' },
+                        { select: false, keyword: 'on page seo analysis', trend: 'analysis', trendVariant: 'warning', volume: '8,100', cpc: '2.10', competition: 'Medium' },
+                        { select: false, keyword: 'seo competitor analysis', trend: 'analysis', trendVariant: 'primary', volume: '7,200', cpc: '2.90', competition: 'High' },
+                        { select: false, keyword: 'keyword analysis seo', trend: 'analysis', trendVariant: 'success', volume: '5,400', cpc: '1.90', competition: 'Medium' },
+                        { select: false, keyword: 'seo audit tool', trend: 'audit', trendVariant: 'warning', volume: '11,300', cpc: '3.50', competition: 'High' },
+                        { select: false, keyword: 'google seo analysis', trend: 'analysis', trendVariant: 'primary', volume: '9,200', cpc: '2.60', competition: 'High' }
+                    ])
+                };
+                
+            },
+            methods: {
+                handlePageChange(page) {
+                    this.currentPage = page;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
