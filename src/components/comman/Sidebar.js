@@ -191,9 +191,9 @@ export class Sidebar extends BaseComponent {
     footer.innerHTML = `
         <h4 class="text-[12px] font-black !text-white uppercase tracking-[0.1em] pl-2">Extend limits now</h4>
         <div class="px-2">
-            <button class="w-full h-[48px] bg-[#8ab800] text-white font-black text-[14px] rounded-xl shadow-lg shadow-[#8ab800]/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+            <my-button type="primary" text="Abo Active" show-icon='false' class="!w-[128px] !h-[48px]">
                 Abo Active
-            </button>
+            </my-button>
         </div>
     `;
     bottom.appendChild(footer);

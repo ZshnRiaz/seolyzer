@@ -55,23 +55,21 @@ const baseClasses = [
 ];
 
     const variants = {
-      primary: 'bg-[#8ab800] text-white hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#8ab800]/20',
-      secondary: 'bg-white text-gray-800 border-2 border-gray-800 hover:bg-gray-50 active:scale-[0.98]',
-      purple: 'bg-[#a459fd] text-white hover:bg-[#8e3ee6] active:scale-[0.98] shadow-lg shadow-[#a459fd]/20',
-      text: 'bg-transparent text-[#ff8f00] hover:underline min-w-0 h-auto px-0',
-      elevated: 'bg-white text-gray-800 shadow-sm border border-gray-100 hover:bg-gray-50'
+      primary: 'bg-[#a3cc00] text-white hover:bg-[#8F5FC4] active:bg-[#a3cc00] active:scale-[0.98] shadow-sm transition-all duration-300',
+      secondary: 'bg-white text-[#111111] border border-[#111111] hover:bg-gray-100 active:bg-white active:scale-[0.98] transition-all duration-300',
+      text: 'bg-transparent text-[#111111] hover:bg-gray-100 active:bg-transparent transition-all duration-300 min-w-0 md:min-w-[120px]',
+      elevated: 'bg-white text-[#111111] shadow-lg border-none hover:bg-gray-50 active:bg-white active:scale-[0.98] transition-all duration-300'
     };
 
     const disabledStyles = {
-      primary: 'bg-[#eeeeee] text-[#9a9a9a] opacity-60',
-      secondary: 'bg-[#eeeeee] text-[#9a9a9a] border-none',
-      purple: 'bg-[#eeeeee] text-[#9a9a9a]',
-      text: 'bg-transparent text-[#dcdcdc]',
-      elevated: 'bg-[#eeeeee] text-[#9a9a9a] shadow-none'
+      primary: 'bg-[#DCDCDC] text-[#9a9a9a] cursor-not-allowed',
+      secondary: 'bg-[#eeeeee] text-[#9a9a9a] border-none cursor-not-allowed',
+      text: 'bg-transparent text-[#dcdcdc] cursor-not-allowed',
+      elevated: 'bg-[#eeeeee] text-[#9a9a9a] shadow-none cursor-not-allowed'
     };
 
     const variantClass = disabled 
-      ? (disabledStyles[type] || disabledStyles.primary) + ' cursor-not-allowed pointer-events-none'
+      ? (disabledStyles[type] || disabledStyles.primary)
       : (variants[type] || variants.primary);
 
     btn.className = `${baseClasses.join(' ')} ${variantClass} ${extraClass}`.trim();

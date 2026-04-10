@@ -1,0 +1,62 @@
+<div class="mt-3 relative">
+    <!-- Background Layer -->
+    <div class="absolute inset-0 rounded-tr-[20px] rounded-tl-[20px] mx-[20px] mt-[20px] z-0" style="background-image: url('/public/images/image.png'), linear-gradient(to bottom, #D8BEE9, #E7D7C3, #F5F5F5); background-blend-mode: soft-light; background-size: cover; background-position: center; -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%); mask-image: linear-gradient(to bottom, black 80%, transparent 100%);"></div>
+
+    <!-- Content Layer -->
+    <div class="relative z-10 pt-[15px]">
+        <!-- Header -->
+        <landing-navbar></landing-navbar>
+
+        <!-- Hero Section -->
+        <landing-hero></landing-hero>
+
+        <!-- Decorative Screen/Preview -->
+        <div class="container mx-auto px-6 pb-20 flex justify-center">
+            <img src="/public/images/Container.png" alt="landing-page-screen" class="w-full max-w-[1036px] h-[800px] rounded-[20px]">
+        </div>
+    </div>
+</div>
+ 
+  <div class="bg-[#F5F5F5]">
+    <!-- Customer Logos Slider -->
+     <div class="px-12 md:px-[110px]">
+    <landing-logos></landing-logos>
+     <!-- SEO Suite Section -->
+    <landing-suite></landing-suite>
+     </div>
+    <!-- Innovative Modules Section -->
+    <landing-modules></landing-modules>
+ 
+    <!-- Keyword Tool Section -->
+    <landing-keywords></landing-keywords>
+      <!-- About Us Section -->
+    <landing-about></landing-about>
+
+    <!-- Testimonials Section -->
+    <landing-testimonials></landing-testimonials>
+
+    <!-- Pricing Section -->
+    <landing-pricing></landing-pricing>
+
+    <!-- FAQ Section -->
+    <landing-faq></landing-faq>
+</div>
+    <!-- Footer Section -->
+    <landing-footer></landing-footer>
+</div>
+
+<style>
+    @keyframes fade-in-up {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fade-in-up {
+        animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+</style>

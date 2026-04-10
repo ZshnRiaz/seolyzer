@@ -21,7 +21,7 @@
             <h2 class="font-['Inter'] font-semibold text-[15px] leading-[22px] tracking-[0px] text-gray-900">Overview of selected copywriters and text agencies that offer texts optimized using SEOlyze.com</h2>
         </div>
 
-        <div id="service-grid" class="grid mt-6 grid-cols-1 md:grid-cols-2 gap-[26px] justify-items-center">
+        <div id="service-grid" class="grid my-6 grid-cols-1 md:grid-cols-2 gap-[26px] max-w-[1070px] justify-items-center">
             <!-- Cards will be injected here -->
         </div>
     </div>
@@ -134,7 +134,7 @@
         function renderGrid() {
             const grid = document.getElementById('service-grid');
             grid.innerHTML = servicesData.map(service => `
-                <div class="bg-white rounded-[18px] p-8 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col gap-5 w-full md:w-[522px] h-auto md:h-[453px] opacity-100">
+                <div class="bg-white rounded-[18px] p-4 md:p-8 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col gap-5 w-full max-w-[522px] h-auto md:h-[453px] opacity-100">
                     <div class="flex flex-col gap-[25px]">
                         <div class="w-12 h-12 bg-[#8F5FC4] rounded-lg flex items-center justify-center text-white shrink-0">
                             ${service.mainIcon}

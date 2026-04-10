@@ -14,32 +14,40 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/dashboard'
+      name: 'landing',
+      templateUrl: 'src/landing-pages/landing-page.htm',
+      meta: { title: 'Welcome to SEOlyze', hideShell: true }
     },
     {
       path: '/dashboard',
       name: 'dashboard',
-      templateUrl: '/src/static/dashboard.htm',
+      templateUrl: 'src/static/dashboard.htm',
       meta: { title: 'Dashboard - SEOlyze', sidebarId: 'analysis' }
     },
     {
       path: '/keyword-research',
       name: 'keyword-research',
-      templateUrl: '/src/static/keyword-research.htm',
+      templateUrl: 'src/static/keyword-research.htm',
       meta: { title: 'Keyword Research - SEOlyze', sidebarId: 'keyword' }
     },
     {
       path: '/text-providers',
       name: 'text-providers',
-      templateUrl: '/src/static/text-providers.htm',
+      templateUrl: 'src/static/text-providers.htm',
       meta: { title: 'Certified Text Providers - SEOlyze', sidebarId: 'certified' }
     },
 
     {
       path:'/showcase',
       name:'showcase',
-      templateUrl: '/src/static/showcase.htm',
+      templateUrl:'src/static/showcase.htm',
       meta: { title: 'Showcase - SEOlyze', sidebarId: 'showcase' }
+    },
+    {
+      path: '/landing',
+      name: 'landing',
+      templateUrl: 'src/landing-pages/landing-page.htm',
+      meta: { title: 'Welcome to SEOlyze', hideShell: true }
     },
     {
       path: '*',
@@ -82,7 +90,7 @@ const state = createApp({
         { id: 'editor', label: 'WDF/IDF Editor', icon: 'fi-rr-edit' },
         { id: 'quick', label: 'WDF Quick Check', icon: 'fi-rr-check' },
         { id: 'saved', label: 'Saved Analyses', icon: 'fi-rr-picture' },
-        { id: 'landing', label: 'Landingpage Monitoring', icon: 'fi-rr-flag' },
+        { id: 'landing', label: 'Landingpage Monitoring', icon: 'fi-rr-flag', route: '/landing' },
         { id: 'writers', label: 'Access for Writers', icon: 'fi-rr-pencil' },
         { id: 'certified', label: 'Certified Text Providers', icon: 'fi-rr-shield-check', route: '/text-providers' },
         { id: 'videos', label: 'Videos', icon: 'fi-rr-play-alt' }
@@ -92,8 +100,17 @@ const state = createApp({
         { label: 'Redakteure:', value: 0, variant: 'primary' },
         { label: 'Access for Writers:', value: 2, variant: 'warning' },
         { label: 'Ranking Monitoring:', value: 10, variant: 'success' }
-      ])
+      ]),
+      isLandingPage: false
     };
+  },
+  computed: {
+    shellHiddenClass() {
+      return this.$route?.meta?.hideShell ? 'hidden' : '';
+    },
+    mainContainerClass() {
+        return this.$route?.meta?.hideShell ? 'flex-grow flex flex-col min-h-screen overflow-x-hidden' : 'flex-grow flex flex-col h-screen overflow-hidden';
+    }
   },
   watch: {
     isSidebarOpen(val) {
