@@ -1,13 +1,15 @@
 import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
 export default defineConfig({
-  root: './',
   build: {
-    outDir: 'dist',
-    emptyOutDir: true,
-  },
-  server: {
-    port: 3000,
-    open: true,
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        keywordResearch: resolve(__dirname, 'keywordResearch.html'),
+        showcase: resolve(__dirname, 'showcase.html'),
+        textProviders: resolve(__dirname, 'textProviders.html')
+      }
+    }
   }
 });
