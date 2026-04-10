@@ -45,17 +45,19 @@
             :stats="stats" 
             :active-id="$route.meta.sidebarId"
             :open="isSidebarOpen"
+            :class="shellHiddenClass"
             @close="toggleSidebar"
             @nav-click="handleNavClick"
         ></my-sidebar>
 
         <!-- RIGHT: Main Content Dynamic Area -->
-        <div class="flex-grow flex flex-col h-screen overflow-hidden">
+        <div :class="mainContainerClass">
             <!-- Global Navbar -->
             <my-navbar 
                 user-name="Zubia Sheraz" 
                 user-role="User" 
                 notifications
+                :class="shellHiddenClass"
                 @toggle-sidebar="toggleSidebar"
             ></my-navbar>
 
@@ -64,6 +66,6 @@
         </div>
     </div>
 
-    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="/src/main.js"></script>
 </body>
 </html>

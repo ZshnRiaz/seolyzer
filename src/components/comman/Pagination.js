@@ -19,15 +19,19 @@ export class Pagination extends BaseComponent {
     const totalPages = Number(this.getAttribute('total-pages') || this['total-pages']) || 1;
     
     const container = document.createElement('div');
-    container.className = 'w-full flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-2 px-1';
+    container.className = 'w-full flex items-center justify-center sm:justify-between gap-4 px-1';
 
-    const createBtn = (label, page, active = false, disabled = false) => {
+    const createBtn = (label, page, active = false, disabled = false, isMobileVisible = true) => {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.textContent = label;
       
-      const baseClasses = 'h-[36px] px-4 flex items-center justify-center text-[13px] font-bold rounded-[10px] transition-all duration-200 min-w-[36px] shadow-[0_2px_4px_rgba(0,0,0,0.08)] border-none';
+      let baseClasses = 'h-[36px] px-3 sm:px-4 flex items-center justify-center text-[12px] sm:text-[13px] font-bold rounded-[10px] transition-all duration-200 min-w-[36px] shadow-[0_2px_4px_rgba(0,0,0,0.08)] border-none';
       
+      if (!isMobileVisible) {
+        baseClasses += ' hidden sm:flex';
+      }
+
       if (disabled) {
         btn.className = `${baseClasses} bg-white text-gray-300 cursor-not-allowed opacity-50`;
       } else if (active) {
@@ -55,7 +59,7 @@ export class Pagination extends BaseComponent {
 
     // LEFT SECTION: Button Group
     const leftSection = document.createElement('div');
-    leftSection.className = 'flex items-center gap-2.5 flex-wrap justify-center sm:justify-start';
+    leftSection.className = 'flex items-center gap-1.5 sm:gap-2.5 flex-wrap justify-center sm:justify-start';
 
     leftSection.appendChild(createBtn('Prev', currentPage > 1 ? currentPage - 1 : null, false, currentPage === 1));
 
@@ -72,17 +76,34 @@ export class Pagination extends BaseComponent {
       pages.push(totalPages);
     }
 
+    // Determine which two numbers are "center" for mobile
+    const mobileNumbers = [];
+    if (totalPages === 1) {
+      mobileNumbers.push(1);
+    } else {
+      // Show current page and one neighbor
+      if (currentPage === totalPages) {
+        mobileNumbers.push(totalPages - 1, totalPages);
+      } else {
+        mobileNumbers.push(currentPage, currentPage + 1);
+      }
+    }
+
     pages.forEach(p => {
       if (p === '...') {
         const dot = document.createElement('div');
-        dot.className = 'h-[36px] w-[36px] flex items-center justify-center bg-white text-[#4C4C4C] text-[13px] font-bold rounded-[10px] shadow-[0_2px_4px_rgba(0,0,0,0.08)]';
+        dot.className = 'h-[36px] w-[36px] flex items-center justify-center bg-white text-[#4C4C4C] text-[13px] font-bold rounded-[10px] shadow-[0_2px_4px_rgba(0,0,0,0.08)] hidden sm:flex';
         dot.textContent = '...';
         leftSection.appendChild(dot);
       } else {
-        const pageBtn = createBtn(p, p, currentPage === p);
-        if (typeof p === 'number') pageBtn.style.paddingLeft = '0';
-        if (typeof p === 'number') pageBtn.style.paddingRight = '0';
-        if (typeof p === 'number') pageBtn.style.width = '36px';
+        const isMobileNum = mobileNumbers.includes(p);
+        const pageBtn = createBtn(p, p, currentPage === p, false, isMobileNum);
+        if (typeof p === 'number') {
+           pageBtn.style.paddingLeft = '0';
+           pageBtn.style.paddingRight = '0';
+           pageBtn.style.width = '36px';
+           pageBtn.style.minWidth = '36px';
+        }
         leftSection.appendChild(pageBtn);
       }
     });
@@ -90,9 +111,9 @@ export class Pagination extends BaseComponent {
     leftSection.appendChild(createBtn('Next', currentPage < totalPages ? currentPage + 1 : null, false, currentPage === totalPages));
     container.appendChild(leftSection);
 
-    // RIGHT SECTION: Selector
+    // RIGHT SECTION: Selector (Hidden on mobile)
     const rightSection = document.createElement('div');
-    rightSection.className = 'flex items-center gap-3 text-[#4C4C4C] text-[14px] font-semibold';
+    rightSection.className = 'hidden sm:flex items-center gap-3 text-[#4C4C4C] text-[14px] font-semibold';
     
     const pageLabel = document.createElement('div');
     pageLabel.className = 'flex items-center gap-1.5';
