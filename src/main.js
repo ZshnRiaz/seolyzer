@@ -15,38 +15,38 @@ const router = createRouter({
     {
       path: '/',
       name: 'landing',
-      templateUrl: 'src/landing-pages/landing-page.htm',
+      templateUrl: '/templates/landing-page.htm',
       meta: { title: 'Welcome to SEOlyze', hideShell: true }
     },
     {
       path: '/dashboard',
       name: 'dashboard',
-      templateUrl: 'src/static/dashboard.htm',
+      templateUrl: '/templates/dashboard.htm',
       meta: { title: 'Dashboard - SEOlyze', sidebarId: 'analysis' }
     },
     {
       path: '/keyword-research',
       name: 'keyword-research',
-      templateUrl: 'src/static/keyword-research.htm',
+      templateUrl: '/templates/keyword-research.htm',
       meta: { title: 'Keyword Research - SEOlyze', sidebarId: 'keyword' }
     },
     {
       path: '/text-providers',
       name: 'text-providers',
-      templateUrl: 'src/static/text-providers.htm',
+      templateUrl: '/templates/text-providers.htm',
       meta: { title: 'Certified Text Providers - SEOlyze', sidebarId: 'certified' }
     },
 
     {
       path:'/showcase',
       name:'showcase',
-      templateUrl:'src/static/showcase.htm',
+      templateUrl:'/templates/showcase.htm',
       meta: { title: 'Showcase - SEOlyze', sidebarId: 'showcase' }
     },
     {
       path: '/landing',
       name: 'landing',
-      templateUrl: 'src/landing-pages/landing-page.htm',
+      templateUrl: '/templates/landing-page.htm',
       meta: { title: 'Welcome to SEOlyze', hideShell: true }
     },
     {
@@ -101,9 +101,64 @@ const state = createApp({
         { label: 'Access for Writers:', value: 2, variant: 'warning' },
         { label: 'Ranking Monitoring:', value: 10, variant: 'success' }
       ]),
-      isLandingPage: false
+      isLandingPage: false,
+      
+      // Page-specific data (consolidated)
+      selectedGoogle: 'com',
+      selectedLanguage: 'en',
+      selectedAnalysis: '1-word',
+      selectedDevice: 'desktop',
+      googleVersions: JSON.stringify([
+          { label: 'Google.com', value: 'com' },
+          { label: 'Google.de', value: 'de' }
+      ]),
+      languages: JSON.stringify([
+          { label: 'English', value: 'en' },
+          { label: 'German', value: 'de' }
+      ]),
+      analysisTypes: JSON.stringify([
+          { label: '1-word analysis', value: '1-word' },
+          { label: '2-word analysis', value: '2-word' }
+      ]),
+      deviceTypes: JSON.stringify([
+          { label: 'Desktop', value: 'desktop' },
+          { label: 'Mobile', value: 'mobile' }
+      ]),
+
+      // Showcase data
+      currentPage: 1,
+      totalPages: 10,
+      appTitle: 'Reactive Showcase',
+      searchTerm: 'Initial Text',
+      topic: '',
+      country: 'us',
+      selectedArea: 'Content Optimization Area',
+      progressVal: 45,
+      tableLoading: false,
+      tableHeadings: JSON.stringify([
+          { title: 'Project', key: 'project', sortable: true, width: 500 },
+          { title: 'Words', key: 'words', sortable: true, width: 120 },
+          { title: 'Info', key: 'info', sortable: true, width: 300 }
+      ]),
+      tableData: JSON.stringify([
+          { project: 'https://en.wikipedia.org/wiki/Graphic_design', words: 10288, info: 'en.wikipedia.org' },
+          { project: 'https://www.figma.com/resource-library/what-is-graphic-design/', words: 3087, info: 'www.figma.com' },
+          { project: 'https://www.canva.com/', words: 8, info: 'www.canva.com' },
+          { project: 'https://www.indeed.com/career-advice/career-development/how-to-become-a-graphic-designer', words: 8, info: 'www.indeed.com' },
+          { project: 'https://www.youtube.com/watch?v=2vAeXG7JwLg', words: '', info: 'www.youtube.com' },
+          { project: 'https://www.behance.net/galleries/graphic-design.', words: 1246, info: 'www.behance.net' },
+          { project: 'https://www.reddit.com/r/graphic_design/', words: 43, info: 'www.reddit.com' },
+          { project: 'https://www.interaction-design.org/literature/topics/graphic-design', words: 7442, info: 'www.interaction-design.org' }
+      ]),
+      countries: JSON.stringify([
+          { label: 'Germany', value: 'germany' },
+          { label: 'Austria', value: 'austria' },
+          { label: 'Spain', value: 'spain' },
+          { label: 'Italy', value: 'italy' }
+      ])
     };
   },
+
   computed: {
     shellHiddenClass() {
       return this.$route?.meta?.hideShell ? 'hidden' : '';

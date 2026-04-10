@@ -1,0 +1,454 @@
+<div class="page-container">
+    <div class="header-section">
+        <h1 v-text="appTitle">Reactive Showcase</h1>
+        <p class="text-gray-500 mt-2">Comprehensive UI Kit for SEOlyze Framework</p>
+    </div>
+
+    <div class="content-wrapper">
+            <section>
+                <h2 class="text-lg font-bold mb-3">Chart Component (ApexCharts)</h2>
+                <div class="w-full">
+                    <p class="text-xs text-gray-400 mb-4 uppercase font-black">Data Visualization with Proof Keywords</p>
+                    <div class="bg-gray-50 rounded-2xl p-4 overflow-hidden">
+                        <proof-keywords-chart></proof-keywords-chart>
+                        <monthly-trend-chart class="mt-8 block"></monthly-trend-chart>
+                        <epskf-chart class="mt-8 block"></epskf-chart>
+                        <wikipedia-epskf-chart class="mt-8 block"></wikipedia-epskf-chart>
+                        <project-envelope-chart class="mt-12 block"></project-envelope-chart>
+                    </div>
+                </div>
+
+                <code class="code-preview">
+                    &lt;proof-keywords-chart&gt;&lt;/proof-keywords-chart&gt;
+                </code>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold mb-3">Pagination Component</h2>
+                <div class="w-full bg-gray-50 p-4">
+                    <p class="text-xs text-gray-400 w-full mb-4 uppercase font-black">Reactive Component Instance</p>
+                    
+                    <my-pagination 
+                        id="demo-pag"
+                        :total-pages="totalPages"
+                        v-model="currentPage"
+                        @pageChange="onPageChange"
+                        class="bg-white rounded shadow-sm border border-gray-100">
+                        <span slot="pageLabel" class="text-black font-normal">Page:</span>
+                    </my-pagination>
+                </div>
+
+                <code class="code-preview">
+                    &lt;my-pagination <br>
+                    &nbsp;&nbsp;:total-pages="totalPages" <br>
+                    &nbsp;&nbsp;v-model="currentPage" <br>
+                    &nbsp;&nbsp;@pageChange="onPageChange"<br>
+                    /&gt;
+                </code>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold mb-3">Button Component</h2>
+                <div class="w-full">
+                    <p class="text-xs text-gray-400 mb-4 uppercase font-black">Figma-spec Variants & Slots</p>
+                    
+                    <div class="flex flex-col gap-4">
+                        <div class="flex flex-wrap gap-3">
+                            <my-button text="Primary" @click="handleBtnClick"></my-button>
+                            <my-button type="secondary" text="Secondary" @click="handleBtnClick"></my-button>
+                            <my-button type="elevated" text="Elevated" @click="handleBtnClick"></my-button>
+                            <my-button type="text" text="Text Link" @click="handleBtnClick"></my-button>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-3 items-center">
+                            <my-button text="Disabled State" disabled @click="handleBtnClick"></my-button>
+                            <my-button type="secondary" text="No Icon" show-icon="false"></my-button>
+                            <my-button type="primary">
+                                <span slot="icon">✨</span>
+                                Custom Slot
+                            </my-button>
+                        </div>
+                    </div>
+                </div>
+
+                <code class="code-preview">
+                    &lt;my-button text="Primary" @click="handleBtnClick" /&gt;<br>
+                    &lt;my-button type="secondary" text="Secondary" /&gt;
+                </code>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold mb-3">Search Component</h2>
+                <div class="w-full">
+                    <p class="text-xs text-gray-400 mb-4 uppercase font-black">Figma-spec Variants & V-Model</p>
+                    
+                    <div class="flex flex-col gap-5">
+                        <div>
+                            <label class="text-xs font-bold text-gray-500 mb-2 block uppercase">Default & Reactive Binding</label>
+                            <my-search v-model="searchTerm"></my-search>
+                            <div class="mt-2 text-sm text-[#a459fd] font-medium">
+                                Current value: <span v-text="searchTerm"></span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="text-xs font-bold text-gray-500 mb-2 block uppercase">Custom Placeholder</label>
+                            <my-search v-model="searchTerm" placeholder="Search Content..."></my-search>
+                        </div>
+
+                        <div>
+                            <label class="text-xs font-bold text-gray-500 mb-2 block uppercase">Disabled State</label>
+                            <my-search placeholder="Cannot search" disabled></my-search>
+                        </div>
+                    </div>
+                </div>
+
+                <code class="code-preview">
+                    &lt;my-search v-model="searchTerm" /&gt;<br>
+                    &lt;my-search placeholder="Content" /&gt;
+                </code>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold mb-3">Generic Input & Select</h2>
+                <div class="w-full">
+                    <p class="text-xs text-gray-400 mb-4 uppercase font-black">Unified Component Design Pattern</p>
+                    
+                    <div class="flex flex-col gap-6">
+                        <!-- Input with Label (Topic/Keyword example) -->
+                        <div class="flex flex-col gap-2">
+                            <label class="text-sm font-bold text-gray-500 flex items-center gap-1">
+                                <span class="text-[#a459fd] text-xs">◆</span> Input
+                            </label>
+                            <my-input v-model="topic" placeholder="Topic/Keyword"></my-input>
+                            <div class="text-xs text-gray-400">Current Topic: <span class="font-bold" v-text="topic"></span></div>
+                        </div>
+
+                        <!-- Select with Label (Country example) -->
+                        <div class="flex flex-col gap-2">
+                            <label class="text-sm font-bold text-gray-500 flex items-center gap-1">
+                                <span class="text-[#a459fd] text-xs">◆</span> Input
+                            </label>
+                            <my-select v-model="country" placeholder="Select Country">
+                                <option value="us">United States</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="ca">Canada</option>
+                                <option value="au">Australia</option>
+                            </my-select>
+                            <div class="text-xs text-gray-400">Selected Country Code: <span class="font-bold" v-text="country"></span></div>
+                        </div>
+
+                        <!-- Input with Icons (pattern demo) -->
+                        <div class="flex flex-col gap-2">
+                            <label class="text-sm font-bold text-gray-500 mb-1">Input with Icon Slots</label>
+                            <my-input placeholder="With icons">
+                                <span slot="left">📧</span>
+                                <span slot="right">✔</span>
+                            </my-input>
+                        </div>
+                    </div>
+                </div>
+
+                <code class="code-preview">
+                    &lt;my-input v-model="topic" placeholder="Topic" /&gt;<br>
+                    &lt;my-select v-model="country"&gt;...&lt;/my-select&gt;
+                </code>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold mb-3">Custom Dropdown Box</h2>
+                <div class="w-full">
+                    <p class="text-xs text-gray-400 mb-4 uppercase font-black">Dynamic Color Variants & State management</p>
+                    
+                    <div class="flex flex-col gap-8 bg-[#8c8c8c] p-10 rounded-xl">
+                        <!-- Orange Scenario -->
+                        <div class="flex flex-col gap-2">
+                            <label class="text-xs font-bold text-white/70 uppercase">Content Area Selector</label>
+                            <my-dropdown v-model="selectedArea"></my-dropdown>
+                            <div class="text-xs text-white/50">Current Choice: <span class="font-bold" v-text="selectedArea"></span></div>
+                        </div>
+
+                        <!-- Variants based on selection -->
+                        <div class="flex flex-col gap-4 border-t border-white/10 pt-4">
+                            <label class="text-xs font-bold text-white/70 uppercase">Visual Previews (Hardcoded)</label>
+                            <div class="flex flex-wrap gap-4">
+                                <my-dropdown value="Content Optimization Area"></my-dropdown>
+                                <my-dropdown value="Content Creation Area"></my-dropdown>
+                                <my-dropdown value="Ranking Tracking Area"></my-dropdown>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <code class="code-preview">
+                    &lt;my-dropdown v-model="selectedArea" /&gt;
+                </code>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold mb-3">Hashtag Card & Tags</h2>
+                <div class="w-full">
+                    <p class="text-xs text-gray-400 mb-4 uppercase font-black">Composite Component with Slots</p>
+                    
+                    <div class="flex flex-wrap gap-8 items-start bg-[#8c8c8c] p-10 rounded-xl">
+                        <!-- Active Card (Green Tags) -->
+                        <my-hashtag-card title="Term utilization already very good" active>
+                            <my-tag label="design"></my-tag>
+                            <my-tag label="graphic"></my-tag>
+                            <my-tag label="typography"></my-tag>
+                            <my-tag label="brand"></my-tag>
+                            <my-tag label="project"></my-tag>
+                            <my-tag label="images"></my-tag>
+                            <my-tag label="free"></my-tag>
+                            <my-tag label="logo"></my-tag>
+                        </my-hashtag-card>
+
+                        <!-- Normal Card (Single Tag) -->
+                        <my-hashtag-card title="Terms should be strengthened">
+                            <my-tag label="designer"></my-tag>
+                        </my-hashtag-card>
+
+                        <!-- Error State Card (Red Tags) -->
+                        <my-hashtag-card title="Terms are missing completely">
+                            <my-tag label="visual" variant="error"></my-tag>
+                            <my-tag label="elements" variant="error"></my-tag>
+                            <my-tag label="designers" variant="error"></my-tag>
+                            <my-tag label="use" variant="error"></my-tag>
+                            <my-tag label="learn" variant="error"></my-tag>
+                            <my-tag label="skill" variant="error"></my-tag>
+                        </my-hashtag-card>
+
+                        <!-- NEW: All Variants Demo -->
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col gap-4">
+                            <h3 class="text-sm font-bold text-gray-900 border-b pb-2">Tag Variants</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <my-tag label="Success" variant="success"></my-tag>
+                                <my-tag label="Error" variant="error"></my-tag>
+                                <my-tag label="Primary" variant="primary"></my-tag>
+                                <my-tag label="Warning" variant="warning"></my-tag>
+                                <my-tag label="Gray Scale" variant="gray"></my-tag>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <code class="code-preview">
+                    &lt;my-hashtag-card title="..." active&gt;<br>
+                    &nbsp;&nbsp;&lt;my-tag label="design" /&gt;<br>
+                    &lt;/my-hashtag-card&gt;
+                </code>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold mb-3">Keyword density Cards</h2>
+                <div class="w-full">
+                    <p class="text-xs text-gray-400 mb-4 uppercase font-black">Data analysis & Text clouds</p>
+                    
+                    <div class="flex flex-wrap gap-6 items-start bg-[#8c8c8c] p-10 rounded-xl overflow-x-auto">
+                        <!-- H1 Card -->
+                        <my-keyword-card title="Top Keywords H1">
+                            <span class="text-[#8ab800]">design</span>(11), <span class="text-[#8ab800]">graphic</span>(8), 
+                            ux(2), user(2), experience(2), skills(2), employees(1), demand(1),
+                        </my-keyword-card>
+
+                        <!-- H2 Card -->
+                        <my-keyword-card title="Top Keywords H2">
+                            <span class="text-[#8ab800]">design</span>(11), <span class="text-[#8ab800]">graphic</span>(8), 
+                            ux(2), user(2), experience(2), skills(2), employees(1), demand(1),
+                        </my-keyword-card>
+
+                        <!-- H3 Card -->
+                        <my-keyword-card title="Top Keywords H3">
+                            design(26), graphic(10), maker(6), type(5), 
+                            ux(5), visual(4), vs(4), guide(4),
+                        </my-keyword-card>
+
+                        <!-- Strong Card -->
+                        <my-keyword-card title="Top Keywords Strong">
+                            design(23), graphic(12), color(5), type(5), 
+                            visual(4), user(3), ux(3), proficiency(2),
+                        </my-keyword-card>
+                    </div>
+                </div>
+
+                <code class="code-preview">
+                    &lt;my-keyword-card title="Top Keywords"&gt;<br>
+                    &nbsp;&nbsp;&lt;span class="text-green-500"&gt;design&lt;/span&gt;(10)<br>
+                    &lt;/my-keyword-card&gt;
+                </code>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold mb-3">Progress Bar Component</h2>
+                <div class="w-full">
+                    <p class="text-xs text-gray-400 mb-4 uppercase font-black">Reactive and Multi-Variant</p>
+                    
+                    <div class="flex flex-col gap-8 bg-white p-10 rounded-2xl border border-gray-100">
+                         <!-- Reactive Example -->
+                         <div class="flex flex-col gap-3">
+                            <label class="text-xs font-black text-gray-500 uppercase tracking-wider">Reactive Toggle (Value: <span v-text="progressVal"></span>%)</label>
+                            <my-progress-bar :value="progressVal"></my-progress-bar>
+                            <div class="flex gap-2">
+                                <my-button text="- 10" @click="() => progressVal = Math.max(0, progressVal - 10)" type="secondary" class="scale-90"></my-button>
+                                <my-button text="+ 10" @click="() => progressVal = Math.min(100, progressVal + 10)" class="scale-90"></my-button>
+                            </div>
+                         </div>
+
+                         <!-- Variants -->
+                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-gray-50">
+                            <div class="flex flex-col gap-2">
+                                <span class="text-[11px] font-bold text-[#a459fd]">Primary (Purple)</span>
+                                <my-progress-bar value="80" variant="primary"></my-progress-bar>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <span class="text-[11px] font-bold text-[#3eb642]">Success (Green)</span>
+                                <my-progress-bar value="65" variant="success"></my-progress-bar>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <span class="text-[11px] font-bold text-[#ff5252]">Error (Red)</span>
+                                <my-progress-bar value="40" variant="error"></my-progress-bar>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <span class="text-[11px] font-bold text-[#ff9800]">Warning (Orange)</span>
+                                <my-progress-bar value="95" variant="warning"></my-progress-bar>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <span class="text-[11px] font-bold text-[#9ca3af]">Gray Scale</span>
+                                <my-progress-bar value="30" variant="gray"></my-progress-bar>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+
+                <code class="code-preview">
+                    &lt;my-progress-bar value="45" variant="primary" /&gt;
+                </code>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold mb-3">Badge Component</h2>
+                <div class="w-full">
+                    <p class="text-xs text-gray-400 mb-4 uppercase font-black">Counts and mini statuses</p>
+                    
+                    <div class="flex flex-col gap-6 bg-white p-10 rounded-2xl border border-gray-100">
+                         <div class="flex flex-wrap gap-4 items-center">
+                            <div class="flex flex-col items-center gap-2">
+                                <span class="text-[10px] text-gray-400 uppercase font-black tracking-wide">Error (Red)</span>
+                                <my-badge variant="error">1246</my-badge>
+                            </div>
+                            <div class="flex flex-col items-center gap-2">
+                                <span class="text-[10px] text-gray-400 uppercase font-black tracking-wide">Success (Green)</span>
+                                <my-badge variant="success">1</my-badge>
+                            </div>
+                            <div class="flex flex-col items-center gap-2">
+                                <span class="text-[10px] text-gray-400 uppercase font-black tracking-wide">Primary (Purple)</span>
+                                <my-badge variant="primary">9</my-badge>
+                            </div>
+                            <div class="flex flex-col items-center gap-2">
+                                <span class="text-[10px] text-gray-400 uppercase font-black tracking-wide">Warning (Orange)</span>
+                                <my-badge variant="warning">New</my-badge>
+                            </div>
+                            <div class="flex flex-col items-center gap-2">
+                                <span class="text-[10px] text-gray-400 uppercase font-black tracking-wide">Label Prop</span>
+                                <my-badge text="99+" variant="gray"></my-badge>
+                            </div>
+                         </div>
+                         
+                         <div class="pt-6 border-t border-gray-50 flex gap-4 items-center">
+                             <span class="text-sm font-bold text-gray-700">Inbox</span>
+                             <my-badge variant="error">5</my-badge>
+                             <span class="text-sm text-gray-400 ml-4">Completed</span>
+                             <my-badge variant="success">99</my-badge>
+                         </div>
+                    </div>
+                </div>
+
+                <code class="code-preview">
+                    &lt;my-badge variant="error"&gt;10&lt;/my-badge&gt;<br>
+                    &lt;my-badge text="99" variant="success" /&gt;
+                </code>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold mb-3">Data Table Component</h2>
+                <div class="w-full">
+                    <p class="text-xs text-gray-400 mb-4 uppercase font-black">Feature-rich Table ported from Vue</p>
+                    
+                    <div class="flex flex-col gap-4 bg-[#8c8c8c]/10 p-1 rounded-2xl">
+                         <!-- Action Toolbar -->
+                         <div class="flex gap-2 mb-2 p-2">
+                            <my-button :text="tableLoading ? 'Finish Loading' : 'Simulate Loading'" @click="() => tableLoading = !tableLoading" class="scale-90"></my-button>
+                            <my-button text="Reset Data" @click="() => tableData = '[]'" type="secondary" class="scale-90"></my-button>
+                         </div>
+
+                         <!-- The Table -->
+                         <my-table 
+                            :headings="tableHeadings" 
+                            :columns="tableData" 
+                            :loading="tableLoading"
+                            freeze-header
+                         >
+                            <!-- Custom Cell Slot for 'Words' -->
+                            <div slot="cell-words" class="flex items-center">
+                                <my-badge variant="primary" class="scale-90 font-bold tracking-tight">{{data.words}}</my-badge>
+                            </div>
+
+                            <!-- Custom Header Slot for 'Project' -->
+                            <div slot="header-project" class="flex items-center gap-2">
+                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-white/60">
+                                     <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                                 </svg>
+                                 <span>Project URL</span>
+                            </div>
+                         </my-table>
+                    </div>
+                </div>
+
+                <code class="code-preview">
+                    &lt;my-table :headings="JSON" :columns="JSON" freeze-header /&gt;
+                </code>
+            </section>
+
+            <section>
+                <h2 class="text-lg font-bold mb-3">Sidebar Component</h2>
+                <div class="w-full flex gap-12 bg-gray-50 p-12 rounded-3xl overflow-hidden border border-gray-100">
+                    <div class="flex-shrink-0">
+                        <!-- The Sidebar -->
+                        <my-sidebar 
+                            :menu="sidebarMenu" 
+                            :stats="sidebarStats" 
+                            active-id="analysis"
+                        ></my-sidebar>
+                    </div>
+
+                    <div class="flex flex-col gap-8 flex-grow">
+                         <div>
+                             <h3 class="text-xl font-black text-gray-800 mb-2">Dynamic Dashboard Layout</h3>
+                             <p class="text-sm text-gray-500 leading-relaxed max-w-lg">
+                                 Our Sidebar is a fully reactive component that manages navigation hierarchies and data-driven stats sections. It uses the <code>&lt;my-badge&gt;</code> component for limit tracking and a custom styled button for subscription management.
+                             </p>
+                         </div>
+
+                         <div class="grid grid-cols-2 gap-4">
+                             <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
+                                 <span class="text-[10px] uppercase font-black text-[#ff8f00] mb-2 block">Theme Colors</span>
+                                 <p class="text-[13px] font-bold text-gray-700">Matched precisely to SEOlyze branding with customized active states.</p>
+                             </div>
+                             <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
+                                 <span class="text-[10px] uppercase font-black text-[#8ab800] mb-2 block">Interactive</span>
+                                 <p class="text-[13px] font-bold text-gray-700">Emits <code>nav-click</code> events and supports sub-menus via JSON structure.</p>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+
+                <code class="code-preview">
+                    &lt;my-sidebar :menu="sidebarMenu" :stats="sidebarStats" active-id="analysis" /&gt;
+                </code>
+            </section>
+    </div>
+
+    <footer class="mt-20 py-10 border-t border-gray-200 text-center text-gray-400 text-sm w-full max-w-[1200px]">
+        Watchers, Computed Props, Attribute Binding & Events are fully operational.
+    </footer>
+</div>
